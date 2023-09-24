@@ -1,0 +1,11 @@
+ <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#newModal"></i>
+ <%= render 'form', task: @task %>
+
+<%= button_to @task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+ <i class="fa-solid fa-trash"></i>
+<% end %>
+<h2><%= @task.title %></h2>
+<p><%= @task.description %></p>
+<%= link_to tasks_path do %>
+  <i class="fa-solid fa-backward"></i>
+<% end %>
