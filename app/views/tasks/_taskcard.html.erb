@@ -1,4 +1,6 @@
-<div class="card">
+<div class="task">
   <%= link_to task_path(task), class: 'text-decoration-none' do %>
-  
+      <%= form.check_box :done, { id: "task_done_#{task.id}", class: "task-checkbox", data: { turbo_action: "click->tasks#toggle_done" } } %>
+      <%= task.title %>
+    </div>
 </div>

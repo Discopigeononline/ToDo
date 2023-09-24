@@ -1,12 +1,17 @@
+
 <h1>To Do</h1>
 <div class="container">
   <ul>
-
     <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#newModal"></i>
     <%= render 'form', task: Task.new %>
-
-  <% @tasks.each do |task| %>
-  <li><%= link_to "#{task.title}", task_path(task) %></li>
-  <% end %>
+    <%= form_with model: @task, local: true do |form| %>
+      <% @tasks.each do |task| %>
+        <div class="task">
+          <%= check_box_tag class: "task-checkbox" %>
+          <%= task.done %>
+          <%= link_to "#{task.title}", task_path(task) %>
+        </div>
+      <% end %>
+    <% end %>
   </ul>
 </div>
